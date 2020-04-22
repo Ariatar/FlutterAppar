@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'colors.dart';
 
 final TextStyle headingTextStyle = TextStyle(
-  fontSize: 32.0,
+  fontSize: 25.0,
   color: Colors.white,
   fontWeight: FontWeight.w700,
   letterSpacing: 1.1,
 );
-final TextStyle whiteNameTextStyle = TextStyle(
-  fontSize: 24.0,
+final TextStyle buttonNameStyle = TextStyle(
+  fontSize: 20.0,
   color: Colors.white,
-  fontWeight: FontWeight.w600,
+  fontWeight: FontWeight.bold,
 );
 final TextStyle whiteSubHeadingTextStyle = TextStyle(
-  fontSize: 18.0,
+  fontSize: 20.0,
   color: Colors.white,
   fontWeight: FontWeight.w400,
 );
