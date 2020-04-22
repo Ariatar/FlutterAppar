@@ -1,3 +1,4 @@
+import 'package:fitnessapp/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fitnessapp/styleguide/colors.dart';
 import 'package:fitnessapp/workout.dart';
@@ -9,6 +10,18 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
         appBar: AppBar(
+          actions: <Widget>[
+            FlatButton(
+              onPressed: () {
+                AuthServices().logout();
+              },
+              child: Icon(
+                Icons.exit_to_app,
+                color: Colors.white,
+                size: 30,
+              ),
+            ),
+          ],
           title: Text('Max Fit'),
           leading: Icon(
             Icons.fitness_center,

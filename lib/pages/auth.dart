@@ -1,6 +1,9 @@
+import 'package:fitnessapp/services/auth.dart';
 import 'package:fitnessapp/styleguide/colors.dart';
 import 'package:fitnessapp/styleguide/text_style.dart';
+import 'package:fitnessapp/user.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Authorizationpage extends StatefulWidget {
   @override
@@ -13,8 +16,10 @@ class _AuthorizationpageState extends State<Authorizationpage> {
   TextEditingController _passwordController = TextEditingController();
 
   String _email;
-  String _passwrod;
+  String _password;
   bool showLogin = true;
+
+  AuthServices _authServices = AuthServices();
 
   @override
   Widget build(BuildContext context) {
@@ -116,13 +121,52 @@ class _AuthorizationpageState extends State<Authorizationpage> {
       );
     }
 
-    void _buttonActions() {
+    void _loginButtonActions() async {
       // функция которая запоминает текст из инпутов потом очищает их
       _email = _emailController.text;
-      _passwrod = _passwordController.text;
+      _password = _passwordController.text;
 
-      _emailController.clear();
-      _passwordController.clear();
+      if (_email.isEmpty || _password.isEmpty) return;
+
+      User user = await _authServices.signInWithEmailAndPassword(
+          _email.trim(), _password.trim());
+      if (user == null) {
+        Fluttertoast.showToast(
+            msg: "This is Center Short Toast",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.red,
+            textColor: Colors.white,
+            fontSize: 16.0);
+      } else {
+        _emailController.clear();
+        _passwordController.clear();
+      }
+    }
+
+    void _registerButtonActions() async {
+      // функция которая запоминает текст из инпутов потом очищает их
+      _email = _emailController.text;
+      _password = _passwordController.text;
+
+      if (_email.isEmpty || _password.isEmpty) return;
+
+      User user = await _authServices.registerWithEmailAndPassword(
+          _email.trim(), _password.trim());
+      if (user == null) {
+        Fluttertoast.showToast(
+            msg: "This is Center Short Toast",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.red,
+            textColor: Colors.white,
+            fontSize: 16.0);
+      } else {
+        _emailController.clear();
+        _passwordController.clear();
+      }
     }
 
     Widget _buttonWave() {
@@ -160,7 +204,7 @@ class _AuthorizationpageState extends State<Authorizationpage> {
           (showLogin
               ? Column(
                   children: <Widget>[
-                    _form('LOGIN', _buttonActions),
+                    _form('LOGIN', _loginButtonActions),
                     Padding(
                       padding: EdgeInsets.all(15),
                       child: GestureDetector(
@@ -177,7 +221,7 @@ class _AuthorizationpageState extends State<Authorizationpage> {
                 )
               : Column(
                   children: <Widget>[
-                    _form('REGISTER', _buttonActions),
+                    _form('REGISTER', _registerButtonActions),
                     Padding(
                       padding: EdgeInsets.all(15),
                       child: GestureDetector(

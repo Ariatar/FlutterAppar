@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "228055962679",
+    "firebase_url": "https://max-fit-dev.firebaseio.com",
+    "project_id": "max-fit-dev",
+    "storage_bucket": "max-fit-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228055962679:android:a16abe73b67c1a9d189bb2",
+        "android_client_info": {
+          "package_name": "com.alexfit.maxfit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228055962679-3497r84s4680h6l6j7ds0h0j03g0sh1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5jdYT--6wTuMc3Q3vSMLS7fJD8I7NFio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228055962679-3497r84s4680h6l6j7ds0h0j03g0sh1s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
