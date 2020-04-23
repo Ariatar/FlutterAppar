@@ -33,3 +33,10 @@ final TextStyle actionMenuStyle = TextStyle(
   fontWeight: FontWeight.w600,
   letterSpacing: 5,
 );
+
+final TextStyle awTextStyle = TextStyle(
+  fontSize: 35.0,
+  color: Colors.red,
+  fontWeight: FontWeight.w700,
+  letterSpacing: 1.1,
+);
